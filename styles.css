@@ -6,11 +6,13 @@
 }
 
 body {
-  font-family: 'Playfair Display', serif;
-  background-color: #fafafa;
-  color: #222;
-  line-height: 1.6;
-  overflow-x: hidden;
+  font-family: 'Manrope', sans-serif;
+  background-color: #ffffff;
+  color: #000000;
+  line-height: 1.4;
+  overflow: hidden;
+  font-weight: 300;
+  height: 100vh;
 }
 
 /* Three.js canvas container */
@@ -27,42 +29,122 @@ body {
 /* Content section */
 #content {
   position: relative;
-  z-index: 2; /* Above the plane animation */
-  max-width: 800px;
-  margin: 6rem auto;
-  padding: 0 1.5rem;
+  z-index: 2;
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 2rem;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
-h1, h2 {
-  font-weight: 600;
-  margin-bottom: 1rem;
+h1 {
+  font-family: 'Playfair Display', serif;
+  font-weight: 800;
+  font-size: 2.5rem;
+  margin-bottom: 0.5rem;
+  text-align: center;
+  color: #000000;
+  line-height: 1.1;
+}
+
+.strike-container {
+  position: relative;
+  display: inline-block;
+}
+
+.strike-text {
+  position: relative;
+  z-index: 1;
+}
+
+.airplane {
+  position: absolute;
+  top: 65%;
+  left: -40px;
+  transform: translateY(-50%);
+  font-size: 1.8rem;
+  z-index: 3;
+  animation: flyThrough 3s ease-in-out 1s forwards;
+}
+
+.strike-line {
+  position: absolute;
+  top: 65%;
+  left: 0;
+  width: 0;
+  height: 4px;
+  background-color: #ffffff;
+  transform: translateY(-50%);
+  z-index: 2;
+  animation: drawLine 3s ease-in-out 1s forwards;
+}
+
+@keyframes flyThrough {
+  0% {
+    left: -40px;
+    opacity: 1;
+  }
+  100% {
+    left: calc(100% + 20px);
+    opacity: 1;
+  }
+}
+
+@keyframes drawLine {
+  0% {
+    width: 0;
+  }
+  100% {
+    width: 100%;
+  }
+}
+
+h2 {
+  font-family: 'Playfair Display', serif;
+  font-weight: 700;
+  font-size: 1.4rem;
+  margin: 1.5rem 0 0.5rem 0;
+  color: #000000;
 }
 
 p {
-  margin-bottom: 1.2rem;
+  margin-bottom: 0.8rem;
+  font-size: 0.9rem;
+  color: #000000;
+  font-weight: 300;
+}
+
+.tagline {
+  font-style: italic;
+  margin-bottom: 1rem;
+  font-size: 1rem;
+  text-align: center;
+  color: #666666;
+  font-weight: 300;
 }
 
 /* Call-to-action buttons */
 .cta-buttons {
   display: flex;
   gap: 1rem;
-  margin-top: 2rem;
+  margin-top: 1.5rem;
+  justify-content: center;
 }
 
 .btn {
   text-decoration: none;
-  color: #fafafa;
-  background-color: #111;
-  padding: 0.75rem 1.5rem;
-  border-radius: 4px;
-  transition: background-color 0.3s ease;
+  color: #000000;
+  border: 1px solid #000000;
+  padding: 0.5rem 1.5rem;
+  font-weight: 300;
+  font-size: 0.9rem;
+  transition: all 0.2s ease;
 }
 
 .btn:hover {
-  background-color: #444;
+  background-color: #000000;
+  color: #ffffff;
 }
 
-.tagline {
-  font-style: italic;
-  margin-bottom: 1.5rem;
-} 
